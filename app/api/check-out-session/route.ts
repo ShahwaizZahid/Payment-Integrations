@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     console.log(body, "body");
     const priceId = body?.priceId;
-
+    const userId = body?.userId;
     if (!priceId || typeof priceId !== "string") {
       return NextResponse.json(
         { error: "Missing or invalid priceId in request body." },
@@ -28,6 +28,10 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
+
+      metadata: {
+        userId: userId,
+      },
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/cancel`,
     });
