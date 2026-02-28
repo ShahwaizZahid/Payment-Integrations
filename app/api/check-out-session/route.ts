@@ -39,11 +39,11 @@ export async function POST(request: Request) {
     return NextResponse.json({
       url: session.url,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const message =
+      err instanceof Error ? err.message : "Webhook verification failed";
+
     console.error("Checkout session error:", err);
-    return NextResponse.json(
-      { error: err?.message || "Internal server error" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
