@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import PortalButton from "@/components/PortalButton";
 
@@ -8,19 +7,19 @@ export default function Home() {
       <div className="flex space-x-4">
         <Link
           href="/one-time-payment"
-          className="bg-amber-300 px-6 py-3 rounded-xl font-medium"
+          className="bg-neutral-200  text-black px-6 py-3 rounded-xl font-medium"
         >
           One time payment
         </Link>
         <Link
           href="/success"
-          className="bg-neutral-200 px-6 py-3 rounded-xl font-medium"
+          className="bg-neutral-200 text-black px-6 py-3 rounded-xl font-medium"
         >
           Success
         </Link>
         <Link
           href="/cancel"
-          className="bg-neutral-200 px-6 py-3 rounded-xl font-medium"
+          className="bg-neutral-200 text-black px-6 py-3 rounded-xl font-medium"
         >
           Cancel
         </Link>

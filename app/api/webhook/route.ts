@@ -20,13 +20,13 @@ export async function POST(request: Request) {
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
   } catch (err: unknown) {
-    const message =
-      err instanceof Error ? err.message : "Webhook verification failed";
+  const message =
+    err instanceof Error ? err.message : "Webhook verification failed";
 
-    console.error("❌", message);
+  console.error("❌", message);
 
-    return NextResponse.json({ error: message }, { status: 400 });
-  }
+  return NextResponse.json({ error: message }, { status: 400 });
+}
 
   try {
     switch (event.type) {
